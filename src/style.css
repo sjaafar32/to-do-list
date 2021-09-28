@@ -1,0 +1,22 @@
+.input {
+    width: 150px;
+    height: 25px;
+}
+
+.title-div {
+    width: 300px;
+    height: 100px;
+    border-style: solid;
+    color: black;
+}
+
+.card {
+    width: 150px;
+    height: 150px;
+    border-style: solid;
+    color: black;
+}
+
+.delete-button {
+    width: 100px;
+}
