@@ -37,7 +37,7 @@ const displayCards = (card) => {
     dateElement.textContent = card.date;
 
     cardContentDom(titleElement, dateElement, cardElement, cardsDiv);
-    createDeleteButton();
+    createDeleteButton(cardElement, cardArray.length-1);
 }
 
 clearButton.addEventListener('click', () => {
@@ -56,4 +56,4 @@ window.onload = () => {
     });
 }
 
-export {clickSubmit, cardsDiv, cardElement, titleElement, dateElement}
+export {clickSubmit, cardsDiv, cardArray, storedArray, cardElement, titleElement, dateElement}
