@@ -10,12 +10,50 @@
   </head>
 <body>
     <main>
-      <form>
-        <input class = "input" id = "title-input" type = "text">
-        <input class = "input" id = "date-input" type = "date">
-        <button id = "submit-button" type = "button">Submit</button>
-      </form>
+      <div id = 'overlay'>
+        <div id ='form'>
+          <div><button id = "x-button">X</button></div>
+          <form>
+            <input class = "input" id = "title-input" type = "text" placeholder = "Project Title">
+            <input class = "input" id = "date-input" type = "date">
+            <div id = "priority-selection-container">
+              <label>
+                <div style="width: 100%; text-align: center; margin-top: 1rem;">Priority Level:</div>
+                <input id="low-priority" type="radio" name = "priority" value = "lowPriority">Low
+                <input id="medium-priority" type="radio" name = "priority" value = "mediumPriority">Medium
+                <input id="high-priority" type="radio" name = "priority" value = "highPriority">High
+              </label>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+              <input class = "input" id = 'task-input' type = "text" placeholder = "Enter Task">
+              <i id = 'add-task' class="material-icons-outlined" style="color: white; margin: 1rem auto 0rem auto;">add_circle</i>
+            </div>
+            <div><button id = "submit-button" type = "button">Submit</button></div>
+          </form>
+        </div>
+      </div>
+
+
+
+      <nav id = "nav">
+      </nav>
+
+
+      <div id='layout'>
+        <div id = "side-bar">
+          <div style="margin-top: 1rem; padding-inline: 1rem; padding-bottom: 1rem;
+            border-bottom-style: dashed; border-color: lightgray; border-width: .3rem;">
+            <h1 style = "display: inline; color: rgb(117, 183, 132); font-size: 3.5rem;">Projects</h1>
+            <i class="material-icons-outlined" id = "add-button">add</i>
+          </div>
+        </div>
+        <div id = "main-content"></div>
+      </div>
+
+
       <button id = "clear-button" type = "button">Clear</button>
+
+
       <div id="cards-div"></div>
     </main>
     <script src="main.js"></script>
