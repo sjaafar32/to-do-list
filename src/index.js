@@ -2,7 +2,7 @@ import _ from 'lodash';
 import sheet from './style.css';
 import card from './create-card';
 import { clickSubmit } from './submit-button';
-import { clickAddTask } from '../task-list';
+import { clickAddTask } from './task-list';
 
 const submitButton = document.getElementById('submit-button');
 const addButton = document.getElementById('add-button');
