@@ -4,7 +4,7 @@ import {card} from './create-card';
 import {cardContentDom} from './dom';
 import { createDeleteButton } from './delete-button';
 
-const main = document.querySelector('main');
+const mainContent = document.getElementById('main-content');
 const title = document.getElementById('title-input');
 const date = document.getElementById('date-input');
 const cardsDiv = document.getElementById('cards-div');
@@ -18,6 +18,7 @@ let titleElement;
 let dateElement;
 
 const clickSubmit = () => {
+    document.documentElement.style.setProperty('--display', 'none');
     newCard = new card (title.value, date.value);
     if(!cardArray){cardArray = [];}
     cardArray.push(newCard);
@@ -36,7 +37,7 @@ const displayCards = (card) => {
     const dateElement = document.createElement('div');
     dateElement.textContent = card.date;
 
-    cardContentDom(titleElement, dateElement, cardElement, cardsDiv);
+    cardContentDom(titleElement, dateElement, cardElement, cardsDiv, mainContent);
     createDeleteButton(cardElement, cardArray.length-1);
 }
 
@@ -49,6 +50,7 @@ clearButton.addEventListener('click', () => {
 
 
 window.onload = () => {
+    document.documentElement.style.setProperty('--display', 'none');
     console.log(storedArray);
     storedArray.forEach(card => {
         cardArray.push(card);
@@ -56,4 +58,4 @@ window.onload = () => {
     });
 }
 
-export {clickSubmit, cardsDiv, cardArray, storedArray, cardElement, titleElement, dateElement}
+export {clickSubmit, mainContent, cardsDiv, cardArray, storedArray, cardElement, titleElement, dateElement}
