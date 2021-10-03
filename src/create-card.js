@@ -13,42 +13,12 @@ let priorityElement;
 let projectTitle;
 let projectDate;
 let projectPriority;
-let sideBarArray = [];
-let projectDiv;
 
 function card(title, date, taskArray, priority){
     this.title = title;
     this.date = date;
     this.taskArray = taskArray;
     this.priority = priority;
-}
-
-
-
-
-const sideBar = document.getElementById('side-bar');
-
-const sideBarProjectList = (card) => {
-    projectDiv = document.createElement('div');
-    projectDiv.classList.add('project-div');
-
-    projectTitle = document.createElement('div');
-    projectTitle.classList.add('project-title');
-
-    projectDate = document.createElement('div');
-    projectDate.classList.add('project-date');
-
-    projectPriority = document.createElement('div');
-    projectPriority.textContent = card.priority;
-    projectPriority.classList.add('project-priority');
-    projectPriority.style.color = priorityColor(projectPriority.textContent);
-
-    projectTitle.textContent = card.title;
-    projectDate.textContent = 'DUE: ' + card.date;
-
-    projectListDom(projectTitle, projectDate, projectPriority, projectDiv, sideBar);
-
-    sideBarArray.push(projectDiv);
 }
 
 const displayCards = (card) => {
@@ -69,7 +39,31 @@ const displayCards = (card) => {
     priorityElement.style.color = priorityColor(priorityElement.textContent);
 
     cardContentDom(titleElement, dateElement, priorityElement, card.taskArray ,cardElement, mainContent);
-    createDeleteButton(cardElement, projectDiv, cardArray.length-1);
+    createDeleteButton(cardElement, cardArray.length-1);
 }
 
-export {card, displayCards, sideBarProjectList, sideBar, sideBarArray}
+
+const sideBar = document.getElementById('side-bar');
+
+const sideBarProjectList = (card) => {
+    const projectDiv = document.createElement('div');
+    projectDiv.classList.add('project-div');
+
+    projectTitle = document.createElement('div');
+    projectTitle.classList.add('project-title');
+
+    projectDate = document.createElement('div');
+    projectDate.classList.add('project-date');
+
+    projectPriority = document.createElement('div');
+    projectPriority.textContent = card.priority;
+    projectPriority.classList.add('project-priority');
+    projectPriority.style.color = priorityColor(projectPriority.textContent);
+
+    projectTitle.textContent = card.title;
+    projectDate.textContent = 'DUE: ' + card.date;
+
+    projectListDom(projectTitle, projectDate, projectPriority, projectDiv, sideBar);
+}
+
+export {card, displayCards, sideBarProjectList}
