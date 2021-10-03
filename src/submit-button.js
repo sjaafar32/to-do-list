@@ -1,45 +1,31 @@
 import _ from 'lodash';
 import sheet from './style.css';
-import {card} from './create-card';
-import {cardContentDom} from './dom';
-import { createDeleteButton } from './delete-button';
+import {card, displayCards, sideBarProjectList} from './create-card';
+import { taskListArray, wholeTaskListDiv, clearTaskArray } from './task-list';
+import { priority } from './priority';
 
 const mainContent = document.getElementById('main-content');
 const title = document.getElementById('title-input');
 const date = document.getElementById('date-input');
-const cardsDiv = document.getElementById('cards-div');
 const clearButton = document.getElementById('clear-button');
 let storedArray = JSON.parse(localStorage.getItem('storedArray'));
 
 let cardArray = [];
 let newCard;
-let cardElement;
-let titleElement;
-let dateElement;
+let priorityLevel;
 
 const clickSubmit = () => {
     document.documentElement.style.setProperty('--display', 'none');
-    newCard = new card (title.value, date.value);
+    priorityLevel = priority();
+    newCard = new card (title.value, date.value, taskListArray, priorityLevel.textContent);
     if(!cardArray){cardArray = [];}
+    clearTaskArray();
     cardArray.push(newCard);
     localStorage.setItem('storedArray', JSON.stringify(cardArray));
     title.value = '';
     displayCards(newCard);
+    sideBarProjectList(newCard);
 };
-
-const displayCards = (card) => {
-    cardElement = document.createElement('div');
-    cardElement.classList.add('card');
-    
-    const titleElement = document.createElement('div');
-    titleElement.textContent = card.title;
-
-    const dateElement = document.createElement('div');
-    dateElement.textContent = card.date;
-
-    cardContentDom(titleElement, dateElement, cardElement, cardsDiv, mainContent);
-    createDeleteButton(cardElement, cardArray.length-1);
-}
 
 clearButton.addEventListener('click', () => {
     cardArray = [];
@@ -55,7 +41,8 @@ window.onload = () => {
     storedArray.forEach(card => {
         cardArray.push(card);
         displayCards(card);
+        sideBarProjectList(card);
     });
 }
 
-export {clickSubmit, mainContent, cardsDiv, cardArray, storedArray, cardElement, titleElement, dateElement}
+export {title, date, clickSubmit, mainContent, cardArray, storedArray}

@@ -1,5 +1,6 @@
 :root{
     --diplay: none;
+    --color: blue;
 }
 
 html {
@@ -9,16 +10,14 @@ html {
 #nav {
     background-color: rgb(117, 183, 132);
     width: 100%;
-    min-height: 10rem;
-    height: min(13vh, 14rem);
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #image {
-    height: min(13vh, 14rem);
-    min-height: 10rem;
+    height: 10rem;
 }
 
 
@@ -48,6 +47,11 @@ html {
     display: var(--display);
     justify-content: center;
 }
+
+
+
+
+
 
 #form {
     display: var(--display);
@@ -133,6 +137,10 @@ html {
     transform: scale(1.1);
 }
 
+
+
+
+
 #layout {
     display: grid;
     grid-template-columns: 10rem 20rem;
@@ -142,11 +150,47 @@ html {
 }
 
 #main-content {
-    width: max(100rem);
+    width: 100rem;
     background-color: white;
     margin-left: 35rem;
-    box-shadow: 0px 5px 30px 5px rgba(37, 126, 29, 0.2);
+    display: grid;
+    grid-template-columns: repeat(3, 33rem);
 }
+
+.card {
+    width: 280px;
+    height: 300px;
+    border-style: none;
+    box-shadow: 0px 5px 30px 5px rgba(37, 126, 29, 0.2);
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-button {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(117, 183, 132);
+    border-style: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.delete-button:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
 
 #side-bar {
     width: max(40rem);
@@ -157,14 +201,53 @@ html {
     box-shadow: 0px 5px 30px 5px rgba(37, 126, 29, 0.2);
 }
 
-
-.card {
-    width: 150px;
-    height: 150px;
-    border-style: solid;
-    color: black;
+.project-div {
+    width: 100%;
+    height: 13rem;
+    border-bottom: solid;
+    align-items: center;
+    border-color: lightgray;
+    border-width: .2rem;
+    background-color: white;
 }
 
-.delete-button {
-    width: 100px;
+.project-div:hover{
+    transform: scale(1.03);
+    box-shadow: 0px 5px 30px 5px rgba(37, 126, 29, 0.2);
+    border-bottom: none;
+}
+
+.project-title {
+    font-size: 3.5rem;
+    color: rgb(117, 183, 132);
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+}
+
+.project-date {
+    font-size: 2rem;
+    color: gray;
+    font-weight: 300;
+    margin-left: 1rem;
+    margin-top: .5rem;
+}
+
+.project-priority {
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+}
+
+.card-task-div {
+    width: 100%;
+    height: 6rem;
+    overflow: auto;
+    text-align: center;
+}
+
+.tasks {
+    font-size: 20px;
+    color: black;
 }
