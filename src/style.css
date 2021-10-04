@@ -16,8 +16,9 @@ html {
     align-items: center;
 }
 
-#image {
+.image {
     height: 10rem;
+    width: 8rem;
 }
 
 
